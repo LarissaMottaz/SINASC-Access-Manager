@@ -1,0 +1,74 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated"
+}
+ 
+datasource db {
+  provider = "postgresql" //entender o erro da url
+}
+
+model User {
+  id           Int                  @id @default(autoincrement())
+  name         String
+  email        String               @unique
+  password     String
+  institution  String?
+  role         String               @default("USER")
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @updatedAt
+
+  aiSettings   AIProviderSettings?
+  routeLogs    RouteAccessLog[]
+  featureLogs  FeatureUsageLog[]
+  auditEvents  AuditEvent[]
+}
+
+model AIProviderSettings {
+  id        Int      @id @default(autoincrement())
+  provider  String
+  endpoint  String?
+  model     String?
+  token     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId    Int      @unique
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model RouteAccessLog {
+  id        Int      @id @default(autoincrement())
+  route     String
+  method    String
+  status    Int?
+  createdAt DateTime @default(now())
+
+  userId    Int?
+  user      User?    @relation(fields: [userId], references: [id])
+}
+
+model FeatureUsageLog {
+  id          Int      @id @default(autoincrement())
+  featureName String
+  description String?
+  status      String?
+  createdAt   DateTime @default(now())
+
+  userId      Int?
+  user        User?    @relation(fields: [userId], references: [id])
+}
+
+model AuditEvent {
+  id          Int      @id @default(autoincrement())
+  eventType   String
+  description String?
+  createdAt   DateTime @default(now())
+
+  userId      Int?
+  user        User?    @relation(fields: [userId], references: [id])
+}
