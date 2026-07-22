@@ -1,21 +1,39 @@
-import { Injectable } from '@nestjs/common';
-import { PrismaClient } from '@prisma/client';
+import { Injectable, ConflictException } from '@nestjs/common';
+import { PrismaService } from '../prisma/prisma.service';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UsersService {
-  private prisma = new PrismaClient();
+  constructor(private prisma: PrismaService) {}
 
   async create(data: any) {
-    const newUser = await this.prisma.user.create({
+    // 1. Verifica se já existe um usuário com este e-mail
+    const existingUser = await this.prisma.user.findUnique({
+      where: { email: data.email },
+    });
+
+    if (existingUser) {
+      throw new ConflictException('E-mail já cadastrado.');
+    }
+
+    // 2. Criptografa a senha com custo 10 (salt)
+    const hashedPassword = await bcrypt.hash(data.password, 10);
+
+    // 3. Salva no banco PostgreSQL com a senha criptografada
+  return this.prisma.user.create({
       data: {
         name: data.name,
         email: data.email,
-        password: data.password,
+        password: hashedPassword,
         institution: data.institution,
         role: 'USER',
       },
     });
+  }
 
-    return newUser;
+  async findByEmail(email: string) {
+    return this.prisma.user.findUnique({
+      where: { email },
+    });
   }
 }
