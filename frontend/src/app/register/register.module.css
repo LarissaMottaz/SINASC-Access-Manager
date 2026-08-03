@@ -1,0 +1,168 @@
+.container{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    height:100vh;
+    background:linear-gradient(
+    135deg,
+    #f6f7fb,
+    #a1a1a1
+);;
+
+}
+
+.card{
+
+     position:relative;
+
+    width:350px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:10px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    box-shadow:0 0 10px rgba(0,0,0,.15);
+
+    border:1px solid #ececec;
+
+    animation:fadeUp .6s ease;
+
+    transition:.3s;
+
+
+}
+
+.card h1{
+    font-size:20px;
+
+    font-weight:400;
+
+    color:#1e1e1e;
+
+    letter-spacing:-1px;
+
+    margin-bottom:10px;
+
+    text-align: center;
+
+}
+
+.card input{
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:6px;
+
+    font-size:16px;
+
+}
+
+.card button{
+
+    padding:12px;
+
+    background:#2c2c2c;
+
+    color:white;
+
+    border:none;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+}
+
+.card button:hover{
+
+    background:#1b1b1b;
+
+}
+
+.error{
+
+    color:red;
+
+    text-align:center;
+
+}
+.backButton{
+
+    width:100%;
+
+    padding:12px;
+
+    background:white;
+
+    color:#2c2c2c;
+
+    border:1px solid #2c2c2c;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.25s;
+
+}
+
+.backButton:hover{
+
+    background:#2c2c2c;
+
+    color:white;
+
+}
+ @keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+.card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+.footer{
+
+    position:absolute;
+
+    bottom:20px;
+
+    font-size:14px;
+
+    color:#777;
+
+}
