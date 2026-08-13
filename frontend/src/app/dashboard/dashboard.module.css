@@ -1,0 +1,167 @@
+.container{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:60px;
+
+    background:
+        radial-gradient(circle at top left,#0b3d4a 0%,transparent 40%),
+        radial-gradient(circle at bottom right,#1b2735 0%,transparent 35%),
+        linear-gradient(135deg,#090b12,#151d26,#0b1117);
+}
+
+.title{
+    font-size:48px;
+    font-weight:700;
+    color:white;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    font-size:18px;
+    color:rgba(255,255,255,.75);
+    margin-bottom:45px;
+    text-align:center;
+}
+
+.grid{
+    width:100%;
+    max-width:1100px;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:25px;
+}
+
+.option{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.20);
+
+    border-radius:18px;
+
+    padding:30px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    text-align:left;
+
+    color:white;
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.25),
+        inset 0 1px 1px rgba(255,255,255,.15);
+
+}
+
+.option:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#49d8ff;
+
+    box-shadow:
+        0 0 30px rgba(73,216,255,.30);
+
+}
+
+.option h2{
+
+    font-size:22px;
+
+    margin-bottom:15px;
+
+    font-weight:600;
+
+}
+
+.option p{
+
+    color:rgba(255,255,255,.75);
+
+    line-height:1.6;
+
+    font-size:15px;
+
+}
+
+.logout{
+
+    margin-top:50px;
+
+    width:180px;
+
+    padding:14px;
+
+    background:rgba(0,180,255,.12);
+
+    color:white;
+
+    border:1px solid rgba(0,180,255,.30);
+
+    border-radius:10px;
+
+    backdrop-filter:blur(18px);
+
+    transition:.3s;
+
+}
+
+.logout:hover{
+
+    background:rgba(0,180,255,.22);
+
+    box-shadow:0 0 20px rgba(0,180,255,.25);
+
+}
+
+.footer{
+
+    position:absolute;
+
+    bottom:20px;
+
+    color:white;
+
+    opacity:.7;
+
+    font-size:14px;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.grid,
+.title,
+.subtitle,
+.logout{
+
+    animation:fadeUp .6s ease;
+
+}

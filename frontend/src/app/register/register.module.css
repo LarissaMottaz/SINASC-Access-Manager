@@ -1,0 +1,222 @@
+.container{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:40px;
+
+    background:
+        radial-gradient(circle at top left,#0b3d4a 0%,transparent 40%),
+        radial-gradient(circle at bottom right,#1b2735 0%,transparent 35%),
+        linear-gradient(135deg,#090b12,#151d26,#0b1117);
+
+}
+
+.card{
+
+    width:420px;
+
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+
+    padding:40px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    border-radius:18px;
+
+    box-shadow:
+        0 8px 32px rgba(0,0,0,.35),
+        inset 0 1px 1px rgba(255,255,255,.18);
+
+    animation:fadeUp .6s ease;
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.25);
+
+}
+
+.card h1{
+
+    text-align:center;
+
+    color:white;
+
+    font-size:34px;
+
+    font-weight:500;
+
+    margin-bottom:10px;
+
+}
+
+/* Campos */
+
+.card input{
+
+    width:100%;
+
+    padding:14px;
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.20);
+
+    border-radius:8px;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.25s;
+
+}
+
+.card input::placeholder{
+
+    color:rgba(255,255,255,.65);
+
+}
+
+.card input:focus{
+
+    border-color:#46d8ff;
+
+    box-shadow:0 0 12px rgba(70,216,255,.3);
+
+}
+
+/* Botão principal */
+
+.card button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    transition:.25s;
+
+}
+
+/* Botão cadastrar */
+
+.card button[type="submit"]{
+
+    background:rgba(0,180,255,.18);
+
+    color:white;
+
+    border:1px solid rgba(0,180,255,.45);
+
+}
+
+.card button[type="submit"]:hover{
+
+    background:rgba(0,180,255,.30);
+
+    box-shadow:0 0 18px rgba(0,180,255,.35);
+
+}
+
+/* Botão voltar */
+
+.backButton{
+
+    background:transparent !important;
+
+    color:white !important;
+
+    border:1px solid rgba(255,255,255,.25) !important;
+
+}
+
+.backButton:hover{
+
+    background:rgba(255,255,255,.08) !important;
+
+}
+
+/* Mensagens */
+
+.error{
+
+    color:#ff8d8d;
+
+    text-align:center;
+
+    font-size:14px;
+
+}
+
+.success{
+
+    color:#7dffb0;
+
+    text-align:center;
+
+    font-size:14px;
+
+}
+
+/* Rodapé */
+
+.footer{
+
+    position:absolute;
+
+    bottom:20px;
+
+    color:rgba(255,255,255,.75);
+
+    font-size:14px;
+
+}
+
+/* Animação */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
